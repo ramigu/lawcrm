@@ -71,14 +71,12 @@ private $zeichen;
 		$numverfahren =count ($this->primpool["verfahren"]) -1;
 		$numpruef =count ($this->primpool["pruefnummer"]) -1;
 		echo'<html><head><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8"><link href="style.css" rel="stylesheet" type="text/css" />
-		</head><body align="center"><img src="./logo_k.png"><h2 style="margin:-30px 0 30px 80px">Aktenzeichen generieren/validieren (Beta)</h2>
-		<br> &bull; Es werden keine Daten gespeichert, das System basiert auf separierten (r&uuml;ckrechenbaren) Primzahlen-Arrays ohne Datenbank. 
-		<br> &bull; Alle errechneten Aktenzeichen sind bei beliebig vielen Anw&auml;lten global eindeutig (das System ist multi-Anwalt f&auml;hig).
-		<br> &bull; Aktenzeichen mit Pr&uuml;fnummer sind f&uuml;r Dritte nicht vorhersehbar.
-		<br> &bull; Maximalwerte f&uuml;r die Beta:'. $numanwaelte .' Anw&auml;lte - mit je bis '.$numverfahren .' Mandaten - mit je bis '.$numpruef.
-		' Pr&uuml;fnummern (davon aber z.Z. nur 16 vom Generator genutzt, die &uuml;brigen werden ggf. als Passwort/Korrespondenzzeichen verwendet.) 
-		ergibt 381.133.438.000 unterschiedliche valide Aktenzeichen.Das System ist beliebig erweiterbar.<br> &bull; Nur die Anwaltsnummer "0" wird 
-		f&uuml;r die Beta selbst genutzt, die Anwaltsnummern ab 1 k&ouml;nnten  nach der Beta fest an Dritte vergeben werden.<hr><h3>neues Aktenzeichen 
+		</head><body align="center"><img src="./logo_k.png"><h2 style="margin:-30px 0 10px 80px">Aktenzeichen generieren/validieren (Beta)</h2>
+		<div style="color:#555;font-size:70%"><br> &bull; basiert auf separierten (r&uuml;ckrechenbaren) Primzahlen-Arrays ohne Datenbank 
+		<br> &bull; multi-Anwalt f&auml;hig wobei alle  Aktenzeichen  global eindeutig sind
+		<br> &bull; Aktenzeichen mit Pr&uuml;fnummer sind f&uuml;r Dritte nicht vorhersehbar. <br> &bull; Maximalwerte der Beta: '. $numanwaelte .' Anw&auml;lte - mit je '.$numverfahren .' Mandaten - mit je '.$numpruef.
+		' Pr&uuml;fnummern (davon 16 vom Generator genutzt) <br>&bull; Quellcode freigegeben unter GPLv2+ <a style="color:#555" href="https://github.com/ramigu/lawcrm/blob/master/az.php">Github</a>
+		</div><hr  style="margin:17px 0  5px 0; color:#050505"><h3>neues Aktenzeichen 
 		generieren</h3><form action="'.$_SERVER['PHP_SELF'].'?" method="post"><table><tr><td>Anwaltsnummer</td><td><input type="text" name="v01" 
 		value="'.@$_POST["v01"].'"></td><td rowspan="2" valign=bottom><input type="submit" value="Aktenzeichen generieren"></td></tr><td>Mandatsnummer
 		</td><td><input type="text" name="v02" value="'.@$_POST["v02"].'"></td></tr></table></form>';
@@ -117,19 +115,18 @@ private $zeichen;
 				echo'<br>Anwaltsnummer: '.$v01;
 				echo'<br>Mandatsnummer: '.$v02;
 				echo'<br>Pr&uuml;fnummer: '.$v03.' (zuf&auml;llig generiert)';
-				echo'<br>';
 				echo'<br>&nbsp;';
 				echo '<br>Aktenzeichen (ohne Pr&uuml;fnummer): <u> '.$aktenz2.'</u>';
 				echo '<br>Aktenzeichen (mit Pr&uuml;fnummer): <u> '.$aktenz.'</u>';
-				echo'<br>&nbsp;<br>&nbsp;<br><p>&nbsp;</p>';
+				echo'<br>&nbsp;<br>';
 			}
 		}
 		
-		echo'<hr><h3>bestehendes Aktenzeichen validieren</h3><form action="'.$_SERVER['PHP_SELF'].'?" method="post">
+		echo'<hr style="color:#050505; margin: 22px 0 18px 0"><h3>bestehendes Aktenzeichen validieren</h3><form action="'.$_SERVER['PHP_SELF'].'?" method="post">
 		<table><tr valign=bottom><td>Aktenzeichen</td><td><input type="text" name="v04" value="'.@$_POST["v04"].'"></td>
 		<td valign=bottom><input type="submit" value="validieren"></td></tr></table></form>';
 		$this->aufloesung ($v04, $v05);
-		echo '<br>&nbsp;<br><hr><a href="imp.gif">Kontakt</a>';
+		echo '<br>&nbsp;<br><hr style="color:#050505"><a href="imp.gif">Kontakt</a>';
 	}
 
 ###################################################################	
@@ -226,6 +223,7 @@ private $zeichen;
 				echo'<br>- keine Pr&uuml;fzahl -';
 			}
 		}
+	
 	}
 
 #####################################################################################################################	

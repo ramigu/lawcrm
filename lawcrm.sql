@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 12. Jul 2014 um 01:31
+-- Erstellungszeit: 22. Jul 2014 um 03:17
 -- Server Version: 5.6.14
 -- PHP-Version: 5.5.6
 
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `com_adr-cities`
+-- Tabellenstruktur für Tabelle `com_adr_cities`
 --
 
-CREATE TABLE IF NOT EXISTS `com_adr-cities` (
+CREATE TABLE IF NOT EXISTS `com_adr_cities` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `region` varchar(120) CHARACTER SET utf8 COLLATE utf8_german2_ci NOT NULL,
   `country` varchar(120) COLLATE latin1_general_ci NOT NULL DEFAULT 'DE',
@@ -34,15 +34,15 @@ CREATE TABLE IF NOT EXISTS `com_adr-cities` (
   PRIMARY KEY (`id`),
   KEY `region` (`region`),
   KEY `country` (`country`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `com_adr-court`
+-- Tabellenstruktur für Tabelle `com_adr_court`
 --
 
-CREATE TABLE IF NOT EXISTS `com_adr-court` (
+CREATE TABLE IF NOT EXISTS `com_adr_court` (
   `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
   `court_type` varchar(120) CHARACTER SET utf8 COLLATE utf8_german2_ci NOT NULL,
   `place` varchar(120) CHARACTER SET utf8 COLLATE utf8_german2_ci NOT NULL,
@@ -61,15 +61,15 @@ CREATE TABLE IF NOT EXISTS `com_adr-court` (
   KEY `phone` (`phone`),
   KEY `fax` (`fax`),
   KEY `court_type` (`court_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=68 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `com_adr-court-type`
+-- Tabellenstruktur für Tabelle `com_adr_court_type`
 --
 
-CREATE TABLE IF NOT EXISTS `com_adr-court-type` (
+CREATE TABLE IF NOT EXISTS `com_adr_court_type` (
   `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
   `court_type` varchar(120) CHARACTER SET utf8 COLLATE utf8_german2_ci NOT NULL,
   `country` varchar(120) COLLATE latin1_general_ci NOT NULL DEFAULT 'DE',
@@ -83,15 +83,15 @@ CREATE TABLE IF NOT EXISTS `com_adr-court-type` (
   KEY `country_2` (`country`),
   KEY `shortname` (`shortname`),
   KEY `id_2` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=20 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `com_adr-orgs-types`
+-- Tabellenstruktur für Tabelle `com_adr_orgs_types`
 --
 
-CREATE TABLE IF NOT EXISTS `com_adr-orgs-types` (
+CREATE TABLE IF NOT EXISTS `com_adr_orgs_types` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `type` varchar(120) COLLATE latin1_general_ci NOT NULL,
   `type_short` varchar(80) COLLATE latin1_general_ci NOT NULL,
@@ -104,29 +104,29 @@ CREATE TABLE IF NOT EXISTS `com_adr-orgs-types` (
   KEY `type_4` (`type`),
   KEY `type_short_2` (`type_short`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=12 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `com_adr-states`
+-- Tabellenstruktur für Tabelle `com_adr_states`
 --
 
-CREATE TABLE IF NOT EXISTS `com_adr-states` (
+CREATE TABLE IF NOT EXISTS `com_adr_states` (
   `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
   `state` varchar(120) COLLATE latin1_general_ci NOT NULL,
   `country` varchar(120) COLLATE latin1_general_ci NOT NULL DEFAULT 'DE',
   PRIMARY KEY (`id`),
   UNIQUE KEY `state` (`state`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `com_lang-ger-country`
+-- Tabellenstruktur für Tabelle `com_lang_ger_country`
 --
 
-CREATE TABLE IF NOT EXISTS `com_lang-ger-country` (
+CREATE TABLE IF NOT EXISTS `com_lang_ger_country` (
   `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(120) COLLATE latin1_general_ci NOT NULL,
   `letter` varchar(120) COLLATE latin1_general_ci NOT NULL,
@@ -141,15 +141,15 @@ CREATE TABLE IF NOT EXISTS `com_lang-ger-country` (
   KEY `tld` (`ISO3166`),
   KEY `letter` (`letter`),
   KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `com_lang-ger-xps`
+-- Tabellenstruktur für Tabelle `com_lang_ger_xps`
 --
 
-CREATE TABLE IF NOT EXISTS `com_lang-ger-xps` (
+CREATE TABLE IF NOT EXISTS `com_lang_ger_xps` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `szenario` varchar(240) COLLATE latin1_general_ci NOT NULL,
   `headline` varchar(240) COLLATE latin1_general_ci NOT NULL,
@@ -157,28 +157,28 @@ CREATE TABLE IF NOT EXISTS `com_lang-ger-xps` (
   `remaining_description` varchar(2560) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`szenario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `com_lang-ger-xps-attributes`
+-- Tabellenstruktur für Tabelle `com_lang_ger_xps_attributes`
 --
 
-CREATE TABLE IF NOT EXISTS `com_lang-ger-xps-attributes` (
+CREATE TABLE IF NOT EXISTS `com_lang_ger_xps_attributes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(240) COLLATE latin1_general_ci NOT NULL,
   `phrase` varchar(1280) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `com_lang-int-country`
+-- Tabellenstruktur für Tabelle `com_lang_int_country`
 --
 
-CREATE TABLE IF NOT EXISTS `com_lang-int-country` (
+CREATE TABLE IF NOT EXISTS `com_lang_int_country` (
   `id` int(4) unsigned NOT NULL AUTO_INCREMENT,
   `ISO3166` varchar(120) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `name_ger` varchar(120) CHARACTER SET utf32 NOT NULL,
@@ -199,10 +199,10 @@ CREATE TABLE IF NOT EXISTS `com_lang-int-country` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `com_reg-attorneys`
+-- Tabellenstruktur für Tabelle `com_reg_attorneys`
 --
 
-CREATE TABLE IF NOT EXISTS `com_reg-attorneys` (
+CREATE TABLE IF NOT EXISTS `com_reg_attorneys` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
   `attorney-number` int(11) NOT NULL,
   PRIMARY KEY (`id`)
@@ -219,30 +219,30 @@ CREATE TABLE IF NOT EXISTS `com_xps` (
   `szenario` varchar(240) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `szenario` (`szenario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `com_xps-attributes`
+-- Tabellenstruktur für Tabelle `com_xps_attributes`
 --
 
-CREATE TABLE IF NOT EXISTS `com_xps-attributes` (
+CREATE TABLE IF NOT EXISTS `com_xps_attributes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(240) COLLATE latin1_general_ci NOT NULL,
   `type` enum('','question') COLLATE latin1_general_ci NOT NULL,
   `answertype` enum('','number','string','date','boolean') COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `com_xps-pathsteps`
+-- Tabellenstruktur für Tabelle `com_xps_pathsteps`
 --
 
-CREATE TABLE IF NOT EXISTS `com_xps-pathsteps` (
+CREATE TABLE IF NOT EXISTS `com_xps_pathsteps` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
@@ -270,10 +270,10 @@ CREATE TABLE IF NOT EXISTS `dat_docs` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_docs-reg-in`
+-- Tabellenstruktur für Tabelle `dat_docs_reg_in`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_docs-reg-in` (
+CREATE TABLE IF NOT EXISTS `dat_docs_reg_in` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `doc-type` enum('','letter','email','fax','delivered') COLLATE latin1_general_ci NOT NULL,
   `recipient-person` varchar(240) COLLATE latin1_general_ci NOT NULL,
@@ -290,10 +290,10 @@ CREATE TABLE IF NOT EXISTS `dat_docs-reg-in` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_docs-reg-out`
+-- Tabellenstruktur für Tabelle `dat_docs_reg_out`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_docs-reg-out` (
+CREATE TABLE IF NOT EXISTS `dat_docs_reg_out` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `mail-type` enum('','letter','email') COLLATE latin1_general_ci NOT NULL,
   `date-year` int(4) NOT NULL,
@@ -319,7 +319,7 @@ CREATE TABLE IF NOT EXISTS `dat_docs_templates` (
   `data` mediumblob NOT NULL,
   `size` int(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=12 ;
 
 -- --------------------------------------------------------
 
@@ -329,23 +329,23 @@ CREATE TABLE IF NOT EXISTS `dat_docs_templates` (
 
 CREATE TABLE IF NOT EXISTS `dat_persons` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
-  `type` enum('','orgs','individuals','orgs-sections') COLLATE latin1_general_ci NOT NULL,
+  `type` enum('','orgs','individuals','orgs_sections') COLLATE latin1_general_ci NOT NULL,
   `foreign-id` int(12) NOT NULL,
   `shortname` varchar(240) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `foreign-id` (`foreign-id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=30 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_persons-auth`
+-- Tabellenstruktur für Tabelle `dat_persons_auth`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_persons-auth` (
+CREATE TABLE IF NOT EXISTS `dat_persons_auth` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
-  `persons-id` int(12) NOT NULL,
+  `persons_id` int(12) NOT NULL,
   `type` enum('','ID','qes','signature','de-mail','personel','bank-account','pgp','business-documents','website','email') COLLATE latin1_general_ci NOT NULL,
   `doc-id` int(12) NOT NULL,
   `date` date NOT NULL,
@@ -355,10 +355,10 @@ CREATE TABLE IF NOT EXISTS `dat_persons-auth` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_persons-individuals`
+-- Tabellenstruktur für Tabelle `dat_persons_individuals`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_persons-individuals` (
+CREATE TABLE IF NOT EXISTS `dat_persons_individuals` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
   `attorney` enum('no','yes') COLLATE latin1_general_ci NOT NULL DEFAULT 'no',
   `gender` enum('','male','female','') COLLATE latin1_general_ci NOT NULL,
@@ -393,14 +393,14 @@ CREATE TABLE IF NOT EXISTS `dat_persons-individuals` (
   UNIQUE KEY `id` (`id`),
   KEY `first-name` (`firstname`),
   KEY `last-name` (`lastname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=3 ;
 
 --
--- Trigger `dat_persons-individuals`
+-- Trigger `dat_persons_individuals`
 --
 DROP TRIGGER IF EXISTS `trig_after_insert_indiv`;
 DELIMITER //
-CREATE TRIGGER `trig_after_insert_indiv` AFTER INSERT ON `dat_persons-individuals`
+CREATE TRIGGER `trig_after_insert_indiv` AFTER INSERT ON `dat_persons_individuals`
  FOR EACH ROW INSERT INTO `dat_persons` (`type`, `foreign-id`, `shortname`) VALUES ('individuals', NEW.id, NEW.lastname)
 //
 DELIMITER ;
@@ -408,10 +408,10 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_persons-orgs`
+-- Tabellenstruktur für Tabelle `dat_persons_orgs`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_persons-orgs` (
+CREATE TABLE IF NOT EXISTS `dat_persons_orgs` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
   `name` varchar(240) COLLATE latin1_general_ci NOT NULL,
   `shortname` varchar(120) COLLATE latin1_general_ci NOT NULL,
@@ -423,14 +423,14 @@ CREATE TABLE IF NOT EXISTS `dat_persons-orgs` (
   KEY `name_2` (`name`),
   KEY `name_4` (`name`),
   KEY `lang_int_country` (`lang_int_country`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=343440 ;
 
 --
--- Trigger `dat_persons-orgs`
+-- Trigger `dat_persons_orgs`
 --
 DROP TRIGGER IF EXISTS `trig_after_insert`;
 DELIMITER //
-CREATE TRIGGER `trig_after_insert` AFTER INSERT ON `dat_persons-orgs`
+CREATE TRIGGER `trig_after_insert` AFTER INSERT ON `dat_persons_orgs`
  FOR EACH ROW INSERT INTO `dat_persons` (`type`, `foreign-id`, `shortname`) VALUES ('orgs', NEW.id, NEW.shortname)
 //
 DELIMITER ;
@@ -438,10 +438,10 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_persons-orgs-section`
+-- Tabellenstruktur für Tabelle `dat_persons_orgs_section`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_persons-orgs-section` (
+CREATE TABLE IF NOT EXISTS `dat_persons_orgs_section` (
   `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
   `section` varchar(120) COLLATE latin1_general_ci NOT NULL,
   `org` varchar(120) COLLATE latin1_general_ci NOT NULL,
@@ -450,87 +450,88 @@ CREATE TABLE IF NOT EXISTS `dat_persons-orgs-section` (
   KEY `id` (`id`),
   KEY `org-sub_2` (`section`),
   KEY `org` (`org`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=6 ;
 
 --
--- Trigger `dat_persons-orgs-section`
+-- Trigger `dat_persons_orgs_section`
 --
 DROP TRIGGER IF EXISTS `trig_after_insert_persons_orgs_sections`;
 DELIMITER //
-CREATE TRIGGER `trig_after_insert_persons_orgs_sections` AFTER INSERT ON `dat_persons-orgs-section`
- FOR EACH ROW INSERT INTO `dat_persons` (`type`, `foreign-id`, `shortname`) VALUES ('orgs-sections', NEW.id, NEW.section)
+CREATE TRIGGER `trig_after_insert_persons_orgs_sections` AFTER INSERT ON `dat_persons_orgs_section`
+ FOR EACH ROW INSERT INTO `dat_persons` (`type`, `foreign-id`, `shortname`) VALUES ('orgs_sections', NEW.id, NEW.section)
 //
 DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_persons-pkeys`
+-- Tabellenstruktur für Tabelle `dat_persons_pkeys`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_persons-pkeys` (
+CREATE TABLE IF NOT EXISTS `dat_persons_pkeys` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_reg-common`
+-- Tabellenstruktur für Tabelle `dat_reg_common`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_reg-common` (
+CREATE TABLE IF NOT EXISTS `dat_reg_common` (
   `id` bigint(12) NOT NULL AUTO_INCREMENT,
   `type` enum('phonecall','email','meeting','fax','mail','crossthinking','bytime','case') COLLATE latin1_general_ci NOT NULL,
   `notes` longtext COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_reg-mandates`
+-- Tabellenstruktur für Tabelle `dat_reg_mandates`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_reg-mandates` (
+CREATE TABLE IF NOT EXISTS `dat_reg_mandates` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `number` int(11) NOT NULL,
   `reference` varchar(12) COLLATE latin1_general_ci NOT NULL,
   `status` enum('','checkup','active','monitoring','retention','suspension','termination') COLLATE latin1_general_ci NOT NULL,
   `agreement` varchar(240) COLLATE latin1_general_ci NOT NULL,
+  `comment` varchar(240) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=6 ;
 
 --
--- Trigger `dat_reg-mandates`
+-- Trigger `dat_reg_mandates`
 --
-DROP TRIGGER IF EXISTS `trig_after_insert_dat_reg-mandates`;
+DROP TRIGGER IF EXISTS `trig_after_insert_dat_reg_mandates`;
 DELIMITER //
-CREATE TRIGGER `trig_after_insert_dat_reg-mandates` AFTER INSERT ON `dat_reg-mandates`
- FOR EACH ROW INSERT INTO `dat_reg-mandates-cases` (`mandates_id`, `mandates_cases_id`) VALUES (NEW.id, '0')
+CREATE TRIGGER `trig_after_insert_dat_reg_mandates` AFTER INSERT ON `dat_reg_mandates`
+ FOR EACH ROW INSERT INTO `dat_reg_mandates_cases` (`mandates_id`, `mandates_cases_id`) VALUES (NEW.id, '0')
 //
 DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_reg-mandates-cases`
+-- Tabellenstruktur für Tabelle `dat_reg_mandates_cases`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_reg-mandates-cases` (
+CREATE TABLE IF NOT EXISTS `dat_reg_mandates_cases` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `agreement` varchar(240) COLLATE latin1_general_ci NOT NULL,
   `mandates_id` int(12) NOT NULL,
   `mandates_cases_id` int(12) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_reg-mandates-cases-persons`
+-- Tabellenstruktur für Tabelle `dat_reg_mandates_cases_persons`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_reg-mandates-cases-persons` (
+CREATE TABLE IF NOT EXISTS `dat_reg_mandates_cases_persons` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` int(11) NOT NULL,
   `role` enum('party','attorney','representative','court','deponent','','') COLLATE latin1_general_ci NOT NULL,
@@ -543,13 +544,13 @@ CREATE TABLE IF NOT EXISTS `dat_reg-mandates-cases-persons` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_reg-mandates-persons`
+-- Tabellenstruktur für Tabelle `dat_reg_mandates_persons`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_reg-mandates-persons` (
+CREATE TABLE IF NOT EXISTS `dat_reg_mandates_persons` (
   `id` int(11) NOT NULL,
-  `cases-number` int(12) NOT NULL,
-  `persons-number` int(12) NOT NULL,
+  `cases_number` int(12) NOT NULL,
+  `persons_number` int(12) NOT NULL,
   `role-type` enum('','client','opponent','court','deponent','other') COLLATE latin1_general_ci NOT NULL,
   `role-subtype` enum('','attorney','ceo','parent','other-representative','') COLLATE latin1_general_ci NOT NULL,
   `addr-priority` int(3) NOT NULL,
@@ -570,10 +571,10 @@ CREATE TABLE IF NOT EXISTS `dat_sys` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_sys-roles`
+-- Tabellenstruktur für Tabelle `dat_sys_roles`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_sys-roles` (
+CREATE TABLE IF NOT EXISTS `dat_sys_roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
@@ -581,10 +582,10 @@ CREATE TABLE IF NOT EXISTS `dat_sys-roles` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_sys-roles-rights`
+-- Tabellenstruktur für Tabelle `dat_sys_roles_rights`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_sys-roles-rights` (
+CREATE TABLE IF NOT EXISTS `dat_sys_roles_rights` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
@@ -592,10 +593,10 @@ CREATE TABLE IF NOT EXISTS `dat_sys-roles-rights` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_sys-settings-privacy`
+-- Tabellenstruktur für Tabelle `dat_sys_settings_privacy`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_sys-settings-privacy` (
+CREATE TABLE IF NOT EXISTS `dat_sys_settings_privacy` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
@@ -603,10 +604,10 @@ CREATE TABLE IF NOT EXISTS `dat_sys-settings-privacy` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_sys-users`
+-- Tabellenstruktur für Tabelle `dat_sys_users`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_sys-users` (
+CREATE TABLE IF NOT EXISTS `dat_sys_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user-name` varchar(480) COLLATE latin1_general_ci NOT NULL,
   `attorney-number` int(12) NOT NULL,
@@ -617,10 +618,22 @@ CREATE TABLE IF NOT EXISTS `dat_sys-users` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `dat_sys-users-settings`
+-- Tabellenstruktur für Tabelle `dat_sys_users_sessions`
 --
 
-CREATE TABLE IF NOT EXISTS `dat_sys-users-settings` (
+CREATE TABLE IF NOT EXISTS `dat_sys_users_sessions` (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `sessions` varchar(25) COLLATE latin1_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `dat_sys_users_settings`
+--
+
+CREATE TABLE IF NOT EXISTS `dat_sys_users_settings` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
